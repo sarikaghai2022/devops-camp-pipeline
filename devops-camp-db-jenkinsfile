@@ -26,11 +26,12 @@ pipeline {
                     }
                 }
             }
-            stage('DB changes: true') {
+          
+           stages {
+                stage('DB changes: true') {
            when {
               environment name: 'BUILD_DB', value: 'true'
            }
-           stages {
               stage('Database docker build') {
                   steps {
                       echo "Building database image"
